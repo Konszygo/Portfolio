@@ -1,0 +1,143 @@
+%% arxikes sunthikes
+
+F = [1/2 1/4 0 0 ; 0 1/2 1/4 0 ; 0 0 6/10 0 ; 0 0 3/10 5/10]; 
+p0 = [1/4 1/4 1/4 1/4];
+pk1 = [1/4 1/4 4/10 1/5];
+
+P = F +  transpose(pk1)*p0;
+% einai o P stoxastikos?
+sum(P,2);
+
+%% upologismos pinaka H(m) trisdiastatos (4*4*m_max)
+
+% gia xrono m = 1
+m = 1;
+H(:,:,1) = [0.8*0.2^(m-1) 0.9*0.1^(m-1) 0.7*0.3^(m-1) 0.6*0.4^(m-1); 0.7*0.3^(m-1) 0.8*0.2^(m-1) 0.9*0.1^(m-1) 0.8*0.2^(m-1); 0.6*0.4^(m-1) 0.8*0.2^(m-1) 0.6*0.4^(m-1) 0.9*0.1^(m-1); 0.8*0.2^(m-1) 0.6*0.4^(m-1) 0.7*0.3^(m-1) 0.8*0.2^(m-1)];
+
+% gia xrono m = 2
+m = 2;
+H(:,:,2) = [0.8*0.2^(m-1) 0.9*0.1^(m-1) 0.7*0.3^(m-1) 0.6*0.4^(m-1); 0.7*0.3^(m-1) 0.8*0.2^(m-1) 0.9*0.1^(m-1) 0.8*0.2^(m-1); 0.6*0.4^(m-1) 0.8*0.2^(m-1) 0.6*0.4^(m-1) 0.9*0.1^(m-1); 0.8*0.2^(m-1) 0.6*0.4^(m-1) 0.7*0.3^(m-1) 0.8*0.2^(m-1)];
+
+% matrix_conv gia sunthiki elegxou 
+matrix_conv = (1.0000e-9)*ones(4);
+
+% A i diafora twn pinakwn H gia duo diadoxika m 
+A = abs(H(:,:,2)-H(:,:,1)) > matrix_conv;
+
+% sunthiki elegxou wste i entoli while na stamatisei otan ola ta stoixeia
+% tou pinaka H gia duo diadoxika m na exoun diafora mikroteri tou 0.0001
+a = sum(sum(A));
+
+while a > 0;
+    m = m+1; 
+    H(:,:,m) = [0.8*0.2^(m-1) 0.9*0.1^(m-1) 0.7*0.3^(m-1) 0.6*0.4^(m-1); 0.7*0.3^(m-1) 0.8*0.2^(m-1) 0.9*0.1^(m-1) 0.8*0.2^(m-1); 0.6*0.4^(m-1) 0.8*0.2^(m-1) 0.6*0.4^(m-1) 0.9*0.1^(m-1); 0.8*0.2^(m-1) 0.6*0.4^(m-1) 0.7*0.3^(m-1) 0.8*0.2^(m-1)];
+    A = abs(H(:,:,m)-H(:,:,m-1)) > matrix_conv ;
+    a = sum(sum(A));
+end
+
+m_max = m;
+
+%% upologismos pinakwn w_i(m) kai sunartisis epiviwsis >w_i(m)
+
+% upologismos pinaka w_i(m) = w = (4*m_max)  kai sunartisis epiviwsis >w_i(m)=ww_1(m) kai oi duo einai diastasis (4*4*m_max) 
+for m = 1:m_max;
+    B = P.*H(:,:,m);
+    w(:,m) = sum(B,2);
+end
+
+% 1o vima upologismos sunartisis epiviwsis >w_i(m) = ww = (4*m_max) 
+for i = 1:4;
+    
+    for m = 1:m_max;
+        s = 0;
+        for j = m+1:m_max;
+          s = s + w(i,j);
+        end
+        ww(i,m) = s;
+    end
+end
+
+% 2o vima kataskeui sunartisis epiviwsis >w_i(m) = www diladi m_max se plithos diagwnioi pinakes (4*4) opou stin
+% kuria diagwnio vriskontai ta stoixeia tis m stilis apo to 1o vima 
+
+for m = 1:m_max
+    www(:,:,m) = diag(ww(:,m));
+end
+
+%% upologismos pinakwn Q(n) diastasi (4*4*m_max)        
+
+% arxiki sunthiki gia pinaka Q(0)
+Q_0 = eye(4);
+
+% pinakes purines C(m) (4*4*m_max)
+for m = 1:m_max;
+    C(:,:,m) = P.*H(:,:,m);
+end
+
+% upologismos Q(:,:,1) wste na ton xrisimopoihsw gia arxiki sunthiki mesa
+% stin for
+Q(:,:,1) = www(:,:,1) + C(:,:,1)* Q_0;
+
+for m = 2:m_max;
+    ss =  0;
+    for k = 1:m-1;
+        ss = ss + C(:,:,k)*Q(:,:,m-k);
+    end
+    ss =  ss + C(:,:,m)*Q_0;
+    Q(:,:,m) =  www(:,:,m) + ss;
+end
+
+
+%% upologismos pinaka N(t)
+
+% arxiki sunthiki gia N(0)
+N_0 = [50 100 150 200]; 
+
+for m = 1:m_max;
+    b = N_0 * Q(:,:,m);
+    N(m,:) = b;
+end
+
+N = [N_0;N];
+
+% elegxos kleistotitas sustimatos
+atoma = sum(N,2); 
+
+% elegxos einai oi pinakes Q stoxastikoi?
+for i = 1:m_max;
+    i
+    sum(Q(:,:,i),2)
+end
+
+%% grafiki apeikonisi apotelesmatwn 
+% ta plot swzontai automata sto fakelo ergasias
+
+figure(1)
+plot(0:m_max,N(:,1),'.-r'); grid on;  
+title('N_1(t)');
+saveas(gcf,'1.png')
+
+figure(2)
+plot(0:m_max,N(:,2),'.-g'); grid on;  
+title('N_2(t)');
+saveas(gcf,'2.png')
+
+figure(3)
+plot(0:m_max,N(:,3),'.-b'); grid on;  
+title('N_3(t)');
+saveas(gcf,'3.png')
+
+figure(4)
+plot(0:m_max,N(:,4),'.-k'); grid on;  
+title('N_4(t)');
+saveas(gcf,'4.png')
+
+figure(5)
+plot(0:m_max,N(:,1),'.-r'); grid on; hold on; plot(0:m_max,N(:,2),'.-g'); hold on; plot(0:m_max,N(:,3),'.-b'); hold on; plot(0:m_max,N(:,4),'.-k');
+title('N_1(t) red N_2(t) green N_3(t) blue N_4(t) black');
+saveas(gcf,'5.png')
+
+
+
+
+

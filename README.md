@@ -25,5 +25,14 @@ The context of this repository is organized as follows:
 - [Visualization](https://github.com/Konszygo/Portfolio/tree/main/Visualization)
 
   Inside this folder, you will find Tableau and PowerBI visualization projects. At the moment, there is only one .pbix file (PoweBI) and one .twbx (Tableau) file. Both of these simple projects are entry-level exercises that introduced me to the most powerful visualization tools. 
+
+### Getting Started
+
+  To explore a specific project, navigate to the corresponding folder and review the README or project files for details.
+  If you have any questions or would like to discuss collaboration opportunities, please feel free to reach out.
+
+Thank you for visiting my portfolio! I'm excited to share my journey and experiences in data science. If you have any feedback, questions, or ideas for collaboration, please don't hesitate to get in touch.
+
+email: konszygogiannis@gmail.com  |  LinkedIn: https://www.linkedin.com/in/konstantinos-zygogiannis/
   
 

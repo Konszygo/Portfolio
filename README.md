@@ -3,7 +3,7 @@ Hello, I am Konstantinos Zygogiannis and this is a README.md file introducing yo
 
 The context of this repository is organized as follows:
 ### Table of contents
-[Kaggle_Sales Forecasting](./kaggle-sales-forecasting)
+[Kaggle_Sales Forecasting]([./kaggle-sales-forecasting](https://github.com/Konszygo/Portfolio/tree/main/Kaggle_Sales%20Forecasting))
 
 
 

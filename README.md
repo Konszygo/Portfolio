@@ -3,16 +3,19 @@ Hello, I am Konstantinos Zygogiannis and this is a README.md file introducing yo
 
 The context of this repository is organized as follows:
 ### Table of contents
-[Kaggle_Sales Forecasting](https://github.com/Konszygo/Portfolio/tree/main/Kaggle_Sales%20Forecasting)
+- [Kaggle_Sales Forecasting](https://github.com/Konszygo/Portfolio/tree/main/Kaggle_Sales%20Forecasting)
 
-[Master's degree Projects](https://github.com/Konszygo/Portfolio/tree/main/Master's%20degree%20Projects)
+  This folder contains Python scripts for a Kaggle competition focused on time series sales forecasting for a large groceries company located in Ecuador, having multiple stores and multiple products for each store. Although the project is incomplete, it's a work in progress where I am exploring and applying machine learning techniques to address the challenge of forecasting.
+- [Master's degree Projects](https://github.com/Konszygo/Portfolio/tree/main/Master's%20degree%20Projects)
 
-[SpaceX Predicting the probability of a rocket landing to its launching pad](https://github.com/Konszygo/Portfolio/tree/main/SpaceX%20Predicting%20the%20probability%20of%20a%20rocket%20landing%20to%20its%20launching%20pad)
+  This folder includes five projects from my master's degree in Statistics and Modeling. The projects are presented in PDF format, covering various statistical analyses and methodologies applied to real-world data. Feel free to explore these academic projects to get an insight into my statistical and analytical skills.
 
-[TensorFlow - Predicting House Prices with Regression](https://github.com/Konszygo/Portfolio/tree/main/TensorFlow%20-%20Predicting%20House%20Prices%20with%20Regression)
+- [SpaceX Predicting the probability of a rocket landing to its launching pad](https://github.com/Konszygo/Portfolio/tree/main/SpaceX%20Predicting%20the%20probability%20of%20a%20rocket%20landing%20to%20its%20launching%20pad)
 
-[TensorFlow - Practicing](https://github.com/Konszygo/Portfolio/tree/main/Tensorflow%20-%20Practicing)
+- [TensorFlow - Predicting House Prices with Regression](https://github.com/Konszygo/Portfolio/tree/main/TensorFlow%20-%20Predicting%20House%20Prices%20with%20Regression)
 
-[Visualization](https://github.com/Konszygo/Portfolio/tree/main/Visualization)
+- [TensorFlow - Practicing](https://github.com/Konszygo/Portfolio/tree/main/Tensorflow%20-%20Practicing)
+
+- [Visualization](https://github.com/Konszygo/Portfolio/tree/main/Visualization)
 
 

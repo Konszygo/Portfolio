@@ -3,8 +3,9 @@ Hello, I am Konstantinos Zygogiannis and this is a README.md file introducing yo
 
 The context of this repository is organized as follows:
 ### Table of contents
-[Kaggle_Sales Forecasting] (https://github.com/Konszygo/Portfolio/blob/main/Kaggle_Sales%20Forecasting/HierarchicalForecasting.ipynb)
-[Kaggle_Sales Forecasting] (https://github.com/Konszygo/Portfolio/tree/main/Kaggle_Sales%20Forecasting)
+[Kaggle_Sales Forecasting](https://github.com/Konszygo/Portfolio/blob/main/Kaggle_Sales%20Forecasting/HierarchicalForecasting.ipynb)
+
+[Kaggle_Sales Forecasting](https://github.com/Konszygo/Portfolio/tree/main/Kaggle_Sales%20Forecasting)
 
 
 

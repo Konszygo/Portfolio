@@ -33,6 +33,6 @@ The context of this repository is organized as follows:
 
 Thank you for visiting my portfolio! I'm excited to share my journey and experiences in data science. If you have any feedback, questions, or ideas for collaboration, please don't hesitate to get in touch.
 
-email: konszygogiannis@gmail.com  |  LinkedIn: https://www.linkedin.com/in/konstantinos-zygogiannis/
+Email: konszygogiannis@gmail.com  |  LinkedIn: https://www.linkedin.com/in/ntinos-zygogiannis/
   
 
